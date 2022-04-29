@@ -17,18 +17,18 @@ let isMan: Bool = true
 print("당신은 남자 입니까?: \(isMan)")
 
 //Float, Double 자료형
-var floatValue = 123456.1
-let doubleValue = 1234567890.1
+var floatValue:Float = 1.1234567
+let doubleValue:Double = 1.123456789
 print("floatValue: \(floatValue), doubleValue: \(doubleValue)")
 
 //Character
-let alphabet: Character = "A"   //문자와 문자열 모두 큰 따옴표("") 사용
+let alphabet: Character = "Z"   //문자와 문자열 모두 큰 따옴표("") 사용
 print(alphabet)
 
 let unicode: Character = "♡"    //유니코드 문자 사용 가능
 print(unicode)
 
-let 한글: String = "ㄱ"    //한글도 유니코드에 속하므로 변수 이름을 한글로 표현 가능
+let 한글: String = "ㅎ"    //한글도 유니코드에 속하므로 변수 이름을 한글로 표현 가능
 print(한글)
 
 //String
@@ -43,3 +43,23 @@ print(hello)
 print("name의 문자 수: \(name.count)")
 print("introduce가 비어있습니까?: \(hello.isEmpty)")
 
+// 타입 별칭
+// 스위프트에서는 기본의 데이터 타입에 별칭 부여가 가능함
+typealias MyInt = Int
+typealias MyDouble = Double
+
+let age: MyInt = 24
+var height: MyDouble = 173.3
+
+print(age)
+print(height)
+
+//tuple 자료형
+var personLee: (name: String, age: Int, height: Double) = ("jeunghun", 24, 173.3)   //tuple 키워드 없이 선언
+print("이름: \(personLee.name), 나이: \(personLee.age), 키: \(personLee.height)")
+//tuple index
+
+personLee.age = 25
+personLee.2 = 175   //index를 이용한 값 변경
+print("이름: \(personLee.0), 나이: \(personLee.1), 키: \(personLee.2)")
+//  index를 이용한 값 호출

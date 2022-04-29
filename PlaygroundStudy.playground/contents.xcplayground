@@ -4,5 +4,6 @@
         <page name='DataType'/>
         <page name='StringMethod'/>
         <page name='VariableConstant'/>
+        <page name='Collection'/>
     </pages>
 </playground>
