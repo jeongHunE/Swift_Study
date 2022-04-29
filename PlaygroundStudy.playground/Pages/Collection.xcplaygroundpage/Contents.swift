@@ -35,7 +35,7 @@ print(programing)
 var dictionary: Dictionary<String, Int> = Dictionary<String, Int>() //빈 Dictionary 선언
     //var dictionary: [String: Int] = [String, Int]()와 같음
     //var dictionary: StringIntDictionary = StringIntDictionary()도 같음
-    //Dictioinary 자료형을 명시하였다면 다음도 가능 var releaseDay: [String: Int] = [:]
+    //Dictioinary의 key와 value를 명시하였다면 다음도 가능 var releaseDay: [String: Int] = [:]
 
 var releaseDay: [String: Int] = ["Java": 1995, "Python": 1991, "Swift": 2014, "Kotlin": 2011]
 print(releaseDay)

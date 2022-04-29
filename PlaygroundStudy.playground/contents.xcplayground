@@ -5,5 +5,6 @@
         <page name='StringMethod'/>
         <page name='VariableConstant'/>
         <page name='Collection'/>
+        <page name='RandomShuffle'/>
     </pages>
 </playground>
