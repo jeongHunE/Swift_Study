@@ -6,5 +6,7 @@
         <page name='VariableConstant'/>
         <page name='Collection'/>
         <page name='RandomShuffle'/>
+        <page name='Control'/>
+        <page name='Loop'/>
     </pages>
 </playground>
