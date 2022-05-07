@@ -49,7 +49,7 @@ case ("Swift", _):
 case (_, 2014):
     print("출시년도만 맞았습니다. 언어는 \(tupleValue.name)입니다.")
 default:
-    print("정확하지 않습닌다.")
+    print("정확하지 않습니다.")
 }
 
 //열거형을 사용한 switch-case문
