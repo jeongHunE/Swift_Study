@@ -44,6 +44,10 @@ let tupleValue: languageRelease = ("Swift", 2014)
 switch tupleValue {
 case ("Swift", 2014):
     print("출시년도가 정확합니다.")
+case ("Swift", _):
+    print("언어만 맞았습니다. 출시년도는 \(tupleValue.releaseYear)입니다.")
+case (_, 2014):
+    print("출시년도만 맞았습니다. 언어는 \(tupleValue.name)입니다.")
 default:
     print("정확하지 않습닌다.")
 }
