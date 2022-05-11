@@ -60,15 +60,15 @@ func helloWorld() -> Void {
 //데이터 타입으로 함수
 typealias Calculate = (Int, Int) -> Int
 
-func add_Num(_ a: Int, _ b: Int) -> Int {
+func addFunc(_ a: Int, _ b: Int) -> Int {
     return a + b
 }
 
-func mul_Num(_ a: Int, _ b: Int) -> Int {
+func mulFunc(_ a: Int, _ b: Int) -> Int {
     return a * b
 }
 
-var add_Var: Calculate = add_Num
+var add_Var: Calculate = addFunc
 //함수를 데이터 타입으로 사용, 함수를 변수에 저장 가능
 print(add_Var(4, 5))
 
@@ -77,10 +77,10 @@ func printResult(_ function: Calculate, _ a: Int, _ b: Int) {
     print("result: \(function(a, b))")
 }
 
-printResult(mul_Num, 3, 4)
+printResult(mulFunc, 3, 4)
 
 func chooseFunction(_ addFunction: Bool) -> Calculate {
-    addFunction ? add_Num : mul_Num
+    addFunction ? addFunc : mulFunc
 }
 
 printResult(chooseFunction(false), 5, 6)
