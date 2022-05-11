@@ -8,5 +8,6 @@
         <page name='RandomShuffle'/>
         <page name='Control'/>
         <page name='Loop'/>
+        <page name='Function'/>
     </pages>
 </playground>
