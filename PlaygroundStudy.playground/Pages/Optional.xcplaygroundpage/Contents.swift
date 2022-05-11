@@ -40,5 +40,5 @@ if let name = studentName {
 //암시적 옵셔널 추출
 var personName: String! = "jeunghun"
 print(personName)
-personName = nil    //String!도 optional이므로 nil 대입 가능
+personName = nil    //암시적 옵셔널 타입도 옵셔널 이므로 nil 사용가능
 print(personName)
