@@ -9,5 +9,6 @@
         <page name='Control'/>
         <page name='Loop'/>
         <page name='Function'/>
+        <page name='Optional'/>
     </pages>
 </playground>
