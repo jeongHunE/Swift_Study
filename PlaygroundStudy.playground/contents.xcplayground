@@ -10,5 +10,7 @@
         <page name='Loop'/>
         <page name='Function'/>
         <page name='Optional'/>
+        <page name='Struct'/>
+        <page name='Class'/>
     </pages>
 </playground>
