@@ -12,5 +12,6 @@
         <page name='Optional'/>
         <page name='Struct'/>
         <page name='Class'/>
+        <page name='Properties'/>
     </pages>
 </playground>
