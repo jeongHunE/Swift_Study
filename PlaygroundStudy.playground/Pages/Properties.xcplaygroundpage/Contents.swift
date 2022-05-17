@@ -43,10 +43,10 @@ print(personKim.point)
 class Student {
     var studentCount: Int = 10 {
         willSet {
-            print("1.수강 인원이 \(studentCount)명에서 \(newValue)명으로 변경될 예정입니다.")
+            print("수강 인원이 \(studentCount)명에서 \(newValue)명으로 변경될 예정입니다.")
         }
         didSet {
-            print("2.수강 인원이 \(oldValue)명에서 \(studentCount)명으로 변경 되었습니다.")
+            print("수강 인원이 \(oldValue)명에서 \(studentCount)명으로 변경 되었습니다.")
         }
     }
     //연산 프로퍼티
@@ -56,7 +56,7 @@ class Student {
         }
         set {
             studentCount = newValue
-            print("3.수강 인원을 \(newValue)로 변경 중입니다.")
+            print("수강 인원을 \(newValue)로 변경 중입니다.")
         }
     }
 }
@@ -64,11 +64,11 @@ class Student {
 class MoreStudent: Student {
     override var doubleValue: Int {
         willSet {
-            print("4.수강인원이 \(doubleValue)명에서 \(newValue)명으로 변경 예정입니다.")
+            print("수강인원이 \(doubleValue)명에서 \(newValue)명으로 변경 예정입니다.")
         }
         
         didSet {
-            print("5.수강인원이 \(oldValue)명에서 \(doubleValue)명으로 변경 되었습니다.")
+            print("수강인원이 \(oldValue)명에서 \(doubleValue)명으로 변경 되었습니다.")
         }
     }
 }
