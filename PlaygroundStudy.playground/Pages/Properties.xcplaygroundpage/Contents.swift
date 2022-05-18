@@ -78,3 +78,33 @@ school.studentCount = 15
 print()
 school.doubleValue = 30
 
+//전역변수와 지역변수
+var studentName: String = "이철수"
+var studentID: Int = 12345
+var studentInfo: String {
+    return "이름: \(studentName) 학번: \(studentID)"
+}
+print(studentInfo)
+
+//타입 프로퍼티
+class Customer {
+    static var discountRate: Double = 0.95  //타입 프로퍼티 선언
+    
+    var price: Double = 0
+    
+    var discountPrice: Double {
+        get {
+            return price * Self.discountRate
+        }
+    }
+}
+
+var normalCustomer: Customer = Customer()
+normalCustomer.price = 15000
+print("일반 고객의 할인된 가격: \(normalCustomer.discountPrice)")
+
+var VIPCustomer: Customer = Customer()
+Customer.discountRate = 0.9     //타입 프로퍼티 접근
+VIPCustomer.price = 15000
+print("VIP 고객의 할인된 가격: \(VIPCustomer.discountPrice)")
+
