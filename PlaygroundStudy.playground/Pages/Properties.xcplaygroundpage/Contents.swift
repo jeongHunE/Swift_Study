@@ -92,7 +92,7 @@ class Customer {
     
     var price: Double = 0
     
-    var discountPrice: Double {
+    var discountPrice: Double {     //연산 프로퍼티
         get {
             return price * Self.discountRate
         }
