@@ -14,5 +14,6 @@
         <page name='Class'/>
         <page name='Properties'/>
         <page name='Method'/>
+        <page name='Instance'/>
     </pages>
 </playground>
