@@ -34,7 +34,7 @@ print()
 
 //구조체에서의 인스턴스 메서드
 struct CalculateStruct {
-    var result: Int = 0{
+    var result: Int = 0 {
         didSet {
             print("result: \(result)")
         }
