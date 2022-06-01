@@ -53,3 +53,54 @@ yourCircle = circle(r: 3, PI: 3.14) {
 }
 
 print(yourCircle)
+
+//값 획득
+func makeIncrementer(amount: Int) -> (() -> Int) {
+    var runningTotal = 1
+    func incrementer() -> Int {
+        runningTotal *= amount
+        return runningTotal
+    }   //incrementer 함수는 주변 변수의 값을 획득
+    return incrementer
+}
+
+let incrementByTwo: (() -> Int) = makeIncrementer(amount: 2)
+
+let first: Int = incrementByTwo()
+print(first)
+let second: Int = incrementByTwo()
+print(second)
+let third: Int = incrementByTwo()
+print(third)
+
+//탈출 클로저
+typealias funcObject = () -> Void
+let firstClosure: funcObject = {
+    print("You choice First Closure!")
+}
+
+let secondClosure: funcObject = {
+    print("You choice Second Closure!")
+}
+
+let noExistClosure: funcObject = {
+    print("error")
+}
+
+func chocieClosure(first: @escaping funcObject, second: @escaping funcObject, choice: String) -> funcObject {
+    if choice == "f" {
+        return first
+    }
+    else if choice == "s" {
+        return second
+    }
+    else {
+        return noExistClosure
+    }
+}
+
+//함수의 반환 값인 클로저를 외부 상수에 저장
+let yourClosure: funcObject = chocieClosure(first: firstClosure, second: secondClosure, choice: "f")
+
+yourClosure()
+
