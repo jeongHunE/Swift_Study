@@ -58,7 +58,7 @@ func changeNumber(_ arr: inout [Int]) {
     arr[3] = arr[0]
 }
 
-changeNumber(&numbers)  // &를 사용하여 참조 매개변수임을 알림
+changeNumber(&numbers)  // &를 사용하여 전달인자가 참조 값임을 알림
 print(numbers)
 
 //반환값이 없는 함수
