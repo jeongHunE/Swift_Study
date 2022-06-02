@@ -51,6 +51,16 @@ func wishList(_ myWishList: String...) -> [String] {
 
 print(wishList("iphone", "ipad", "macbook"))
 
+//입출력 매개변수
+var numbers: [Int] = [1, 2, 3, 4, 5]
+
+func changeNumber(_ arr: inout [Int]) {
+    arr[3] = arr[0]
+}
+
+changeNumber(&numbers)  // &를 사용하여 참조 매개변수임을 알림
+print(numbers)
+
 //반환값이 없는 함수
 func helloWorld() -> Void {
     //Void는 아에 생략도 가능
