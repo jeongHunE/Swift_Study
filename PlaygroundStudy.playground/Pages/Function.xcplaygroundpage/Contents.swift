@@ -68,7 +68,7 @@ func helloWorld() -> Void {
 }
 
 //데이터 타입으로 함수
-typealias Calculate = (Int, Int) -> Int
+typealias Calculate = (Int, Int) -> Int     //타입 별칭 설정
 
 func addFunc(_ a: Int, _ b: Int) -> Int {
     return a + b
@@ -95,3 +95,30 @@ func chooseFunction(_ addFunction: Bool) -> Calculate {
 
 printResult(chooseFunction(false), 5, 6)
 
+//중첩 함수
+typealias Calc = (Int, Int) -> Int      //타입 별칭 설정
+
+func chooseCalc(_ chooseAdd: Bool) -> Calc {
+    func add(_ a: Int, _ b: Int) -> Int {
+        return a + b
+    }
+    
+    func mul(_ a: Int, _ b: Int) -> Int{
+        return a * b
+    }
+    
+    return chooseAdd ? add : mul
+}
+
+let chooseAdd: Bool = true  //더하기 함수를 선택
+let saveCalc: Calc = chooseCalc(chooseAdd)  //반환 받은 함수를 상수에 저장
+
+print(saveCalc(3, 4))
+
+//반환 값을 무시하는 함수
+@discardableResult func someFunction(_ something: String) -> String {
+    print(something)
+    return something
+}
+
+someFunction("Good night!")     //반환 값을 사용하지 않아도 오류 무시
