@@ -90,23 +90,27 @@ print(studentInfo)
 
 //타입 프로퍼티
 class Customer {
-    static var discountRate: Double = 0.95  //타입 프로퍼티 선언
+    static let price: Double = 15000    //저장 타입 프로퍼티(상수)
+    static var discountRate:Double = 0  //저장 타입 프로퍼티(변수)
     
-    var price: Double = 0
-    
-    var discountPrice: Double {     //연산 프로퍼티
+    static var setDiscountRate: Double {  //연산 타입 프로퍼티
         get {
-            return price * Self.discountRate
+            return discountRate
         }
+        set {
+            discountRate = newValue
+        }
+    }
+    
+    func discountPrice() -> Double {
+        return Self.price * Self.discountRate
     }
 }
 
 var normalCustomer: Customer = Customer()
-normalCustomer.price = 15000
-print("일반 고객의 할인된 가격: \(normalCustomer.discountPrice)")
+Customer.setDiscountRate = 0.95     //일반 고객 할인 비율 설정
+print(normalCustomer.discountPrice())
 
 var VIPCustomer: Customer = Customer()
-Customer.discountRate = 0.9     //타입 프로퍼티 접근
-VIPCustomer.price = 15000
-print("VIP 고객의 할인된 가격: \(VIPCustomer.discountPrice)")
-
+Customer.setDiscountRate = 0.90     //VIP 고객 할인 비율 설정
+print(VIPCustomer.discountPrice())
