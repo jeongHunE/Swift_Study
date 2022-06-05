@@ -82,7 +82,9 @@ school.doubleValue = 30
 var studentName: String = "이철수"
 var studentID: Int = 12345
 var studentInfo: String {
-    return "이름: \(studentName) 학번: \(studentID)"
+    get {   //get 메서드로 읽기 전용 상태로 구현
+        "이름: \(studentName) 학번: \(studentID)"   //한 줄짜리 접근자는 return 생략 가능
+    }
 }
 print(studentInfo)
 
