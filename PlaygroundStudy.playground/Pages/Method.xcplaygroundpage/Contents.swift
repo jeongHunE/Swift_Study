@@ -100,12 +100,12 @@ class Photo {
     var originalSize: Int = 100
     
     func enlarge() {
-        PhotoSize.zoomIn()
+        PhotoSize.zoomIn()  //타입 메서드는 타입 이름만으로 호출 가능
     }
     
     func reset() {
-        PhotoSize.size = self.originalSize    //self -> 인스턴스
-    }
+        PhotoSize.size = self.originalSize    //self: 자기 자신 인스턴스
+    }                                         //타입 프로퍼티는 타입 이름만으로 접근 가능
 }
 
 let myPhoto: Photo = Photo()
@@ -114,5 +114,31 @@ print(PhotoSize.size)
 myPhoto.reset()
 print(PhotoSize.size)
 
+//callAsFunction: 인스턴스를 함수처럼 호출
+struct Person {
+    var name: String = "이철수"
+    
+    func callAsFunction() {
+        print("저의 이름은 \(name)입니다. 반갑습니다!")
+    }
+    
+    func callAsFunction(age: Int) {
+        print("저의 나이는 \(age)입니다.")
+    }
+    
+    func callAsFunction(height: Int) {
+        print("저의 키는 \(height)입니다.")
+    }
+    
+    mutating func callAsFunction(name: String) {
+        self.name = name
+    }
+}
 
-
+var introduce: Person = Person()
+introduce.callAsFunction()
+introduce()         //위의 표현과 동일한 표현
+introduce.callAsFunction(age: 99)
+introduce(age: 99)  //위의 표현과 동일한 표현
+introduce.callAsFunction(height: 180)
+introduce(height: 180)
