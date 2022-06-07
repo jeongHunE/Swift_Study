@@ -92,7 +92,7 @@ struct PhotoSize {
     static var size: Int = 100
     
     static func zoomIn() {
-        self.size =  200    //self -> PhotoSize
+        self.size =  200    //self: 자기 자신 타입
     }
 }
 
