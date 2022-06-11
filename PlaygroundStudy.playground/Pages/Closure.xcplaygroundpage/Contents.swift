@@ -66,11 +66,11 @@ func makeIncrementer(amount: Int) -> (() -> Int) {
 
 let incrementByTwo: (() -> Int) = makeIncrementer(amount: 2)
 
-let first: Int = incrementByTwo()   //incrementByTwo 상수에 저장된 클로저는 참조를 가지고                                    있기때문에 호출시 runningTotal에 amount가 곱해진                                     값이 반환됨
+let first: Int = incrementByTwo()   //incrementByTwo 상수에 저장된 클로저는 참조를 가지고                                 //있기때문에 호출시 runningTotal에 amount가 곱해진                                  //값이 반환됨
 print(first)
 let second: Int = incrementByTwo()
 print(second)
-let third: Int = incrementByTwo()
+let third: Int = incrementByTwo() 
 print(third)
 
 //탈출 클로저
