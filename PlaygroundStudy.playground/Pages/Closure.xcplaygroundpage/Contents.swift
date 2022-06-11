@@ -30,8 +30,8 @@ var yourCircle: Double
 yourCircle = circle(r: 3, PI: 3.14) {(r: Double, PI: Double) -> Double in return 2 * PI * r}
 print(yourCircle)
 
-//반환 값 생략
-yourCircle = circle(r: 3,  PI: 3.14) {(r: Double, PI: Double) in return 2 * PI * r}
+//문맥을 통합 타입 유추(매개변수, 반환 값)
+yourCircle = circle(r: 3,  PI: 3.14) {(r, PI) in return 2 * PI * r}
 print(yourCircle)
 
 //단축 인자이름(매개변수 생략)
