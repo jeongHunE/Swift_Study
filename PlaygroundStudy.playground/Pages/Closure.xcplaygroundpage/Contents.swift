@@ -60,13 +60,13 @@ func makeIncrementer(amount: Int) -> (() -> Int) {
     func incrementer() -> Int {
         runningTotal *= amount
         return runningTotal
-    }   //incrementer 함수는 주변 변수의 값을 획득
+    }   //incrementer 함수는 주변 변수인 amount와 runningTotal의 참조를 획득
     return incrementer
 }
 
 let incrementByTwo: (() -> Int) = makeIncrementer(amount: 2)
 
-let first: Int = incrementByTwo()
+let first: Int = incrementByTwo()   //incrementByTwo 상수에 저장된 클로저는 참조를 가지고                                    있기때문에 호출시 runningTotal에 amount가 곱해진                                     값이 반환됨
 print(first)
 let second: Int = incrementByTwo()
 print(second)
@@ -97,10 +97,20 @@ func chocieClosure(first: @escaping funcObject, second: @escaping funcObject, ch
     else {
         return noExistClosure
     }
+    //전달인자로 전달된 클로저가 다시 반환 될 수 있으므로 탈출 클로저를 사용
 }
 
 //함수의 반환 값인 클로저를 외부 상수에 저장
 let yourClosure: funcObject = chocieClosure(first: firstClosure, second: secondClosure, choice: "f")
 
-yourClosure()
+yourClosure()   //클로저 호출
 
+//자동 클로저
+var myDevice: [String] = ["iPhone", "iPad", "Macbook Pro"]
+
+func introduceMyDevice(_ device: @autoclosure () -> String) {
+    //autoclosure 속성을 가지는 매개변수가 전달인자를 클로저로 변환
+    print("This is my \(device())!")    //(자동)클로저 호출
+}
+
+introduceMyDevice(myDevice.removeFirst())
