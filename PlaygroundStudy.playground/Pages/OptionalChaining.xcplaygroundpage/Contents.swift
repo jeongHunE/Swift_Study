@@ -36,7 +36,7 @@ let personLee: Person = Person(name: "이철수")
 
 var yourField: String? = nil
 
-//옵셔널 바인딩을 이용한 프로퍼티 사용
+//옵셔널 바인딩을 이용한 프로퍼티 접근
 if let personStudent: Student = personLee.student {     //옵셔널 바인딩으로 nil이 아닌지 판별
     if let personUniversity: University = personStudent.university {
         if let personMajor: Major = personUniversity.major {
@@ -51,7 +51,7 @@ if let field: String = yourField {
     print("전공에 대한 정보가 없습니다.")
 }
 
-//옵셔널 체이닝을 이용한 프로퍼티 사용
+//옵셔널 체이닝을 이용한 프로퍼티 접근
 if let yourFiled: String = personLee.student?.university?.major?.field {
     print(yourFiled)
 } else {
