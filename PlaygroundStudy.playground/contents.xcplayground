@@ -16,5 +16,6 @@
         <page name='Method'/>
         <page name='Instance'/>
         <page name='Closure'/>
+        <page name='OptionalChaining'/>
     </pages>
 </playground>
