@@ -12,6 +12,41 @@ struct University {                 //학교
     var location: String            //학교 위치
     var major: Major?               //전공 관련 정보
     var summary: String?            //학교 소개
+    
+    init(name: String, location: String) {
+        self.name = name
+        self.location = location
+    }
+    
+    //메서드
+    func introduce() -> String? {
+        var yourInfo: String? = nil  //전공에 관련된 정보 저장하는 변수
+        
+        if let majorInfo: Major = self.major {
+            yourInfo = majorInfo.field
+        } else {
+            if let detail = self.summary {
+                yourInfo = detail
+            }
+        }
+        
+        if let info: String = yourInfo {
+            var introduce: String = self.location + "에 위치한 "
+            
+            introduce += self.name + "에서 "
+            introduce += info + " 전공을 공부하고 있습니다."
+            
+            return introduce
+        } else {
+            return nil
+        }
+    }
+    
+    func printInfo() {
+        if let introduction = self.introduce() {
+            print(introduction)
+        }
+    }
 }
 
 class Student {                     //학생
@@ -60,8 +95,12 @@ if let yourFiled: String = personLee.student?.university?.major?.field {
 
 //옵셔널 체이닝을 이용한 값 할당
 personLee.student = Student(grade: "sophomore")
-personLee.student?.university = University(name: "한국대학교", location: "대한민국", summary: nil)
+personLee.student?.university = University(name: "한국대학교", location: "대한민국")
 personLee.student?.university?.major = Major(field: "nil")
 personLee.student?.university?.major?.field = "컴퓨터공학"
 
 print(personLee.student?.university?.major?.field)
+
+//옵셔널 체이닝을 이용한 메서드 호출
+personLee.student?.university?.introduce()?.isEmpty     //false
+personLee.student?.university?.printInfo()  //대한민국에 위치한 한국대학교에서 컴퓨터공학 전공을 공부하고 있습니다.
