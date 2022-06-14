@@ -11,7 +11,7 @@ struct University {                 //학교
     var name: String                //학교 이름
     var location: String            //학교 위치
     var major: Major?               //전공 관련 정보
-    var summary: String?            //학교 소개
+    var detailInfo: String?            //학교 소개
     
     init(name: String, location: String) {
         self.name = name
@@ -25,7 +25,7 @@ struct University {                 //학교
         if let majorInfo: Major = self.major {
             yourInfo = majorInfo.field
         } else {
-            if let detail = self.summary {
+            if let detail = self.detailInfo {
                 yourInfo = detail
             }
         }
