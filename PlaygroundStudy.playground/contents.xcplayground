@@ -17,5 +17,6 @@
         <page name='Instance'/>
         <page name='Closure'/>
         <page name='OptionalChaining'/>
+        <page name='HighOrderFunction'/>
     </pages>
 </playground>
