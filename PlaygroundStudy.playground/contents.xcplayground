@@ -18,5 +18,6 @@
         <page name='Closure'/>
         <page name='OptionalChaining'/>
         <page name='HighOrderFunction'/>
+        <page name='EarlyExit'/>
     </pages>
 </playground>
