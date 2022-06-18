@@ -7,7 +7,7 @@ for i in 1...10 {
 }
 
 //옵셔널 바인딩을 사용한 guard 구문
-func introduce(_ person: [String: String]) -> Void {
+func introduce1(_ person: [String: String]) -> Void {
     guard let name: String = person["name"] else {
         return
     }
@@ -32,4 +32,17 @@ person["name"] = "이철수"      //딕셔너리에 새로운 Key: Value 추가
 person["residence"] = "대한민국"
 person["job"] = "개발자"
 
-introduce(person)
+introduce1(person)
+
+//guard문에 구체적인 조건 추가
+func introduce2(name: String?, age: Int?, job: String?) {
+    guard let name: String = name, let age: Int = age, age > 19, let job: String = job else {
+        print("성인이 아닙니다.")  //age가 19 이하일 경우 else문 실행
+        return
+    }
+    print("저의 이름은 \(name)입니다.")
+    print("저는 성인입니다.")
+    print("저의 직업은 \(job)입니다.")
+}
+
+introduce2(name: "이철수", age: 99, job: "개발자")
