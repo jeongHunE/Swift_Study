@@ -19,5 +19,6 @@
         <page name='OptionalChaining'/>
         <page name='HighOrderFunction'/>
         <page name='EarlyExit'/>
+        <page name='Subscript'/>
     </pages>
 </playground>
