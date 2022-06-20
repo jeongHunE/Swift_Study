@@ -40,7 +40,7 @@ print(oddNum)       //[7, 9, 11]
 //reduce(리듀스)
 //연산 후 결과 값을 반환하는 형태의 리듀스
 var sum: Int = numbers.reduce(0, { (result: Int, next: Int) -> Int in
-    return result + next    //초기값이 1이고 numbers에 모든 요소를 더하는 리듀스
+    return result + next    //초기값이 0이고 numbers에 모든 요소를 더하는 리듀스
 })
 
 print(sum)      //21
