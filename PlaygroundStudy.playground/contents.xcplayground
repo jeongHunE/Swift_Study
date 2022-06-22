@@ -20,5 +20,6 @@
         <page name='HighOrderFunction'/>
         <page name='EarlyExit'/>
         <page name='Subscript'/>
+        <page name='Inheritance'/>
     </pages>
 </playground>
