@@ -1,7 +1,7 @@
 //상속
 //부모 클래스
 class Person {
-    var name: String = ""   // 저장 프로퍼티
+    final var name: String = ""   // final로 선언된 저장 프로퍼티
     var age: Int = 0 {
         willSet {
             print("변수의 값이 \(newValue)로 변경될 예정입니다.(Person)")
@@ -92,3 +92,30 @@ personKim.born = 2003   //나이가 20로 변경될 예정입니다.(Person)
                         //나이가 20로 변경 되었습니다.(Person)
                         //나이가 20(으)로 변경 되었습니다.(Student)
 print(personKim.age)    //20
+
+//서브스크립트 재정의
+class Customer {
+    var guest: [Person] = [Person]()
+    
+    subscript(num: Int) -> Person {
+        print("일반 고객입니다.")
+        return guest[num]
+    }
+}
+
+class VIPCustomer: Customer {
+    var VIPguest: [Person] = [Person]()
+    
+    override subscript(index: Int) -> Person {
+        print("VIP 고객입니다.")
+        return VIPguest[index]
+    }
+}
+
+let customerInfo: Customer = Customer()
+customerInfo.guest.append(Person())
+customerInfo[0] //일반 고객입니다.
+
+let VIPInfo: VIPCustomer = VIPCustomer()
+VIPInfo.VIPguest.append(Person())
+VIPInfo[0]  //VIP 고객입니다.
