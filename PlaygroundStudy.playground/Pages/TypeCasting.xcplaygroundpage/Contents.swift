@@ -59,3 +59,65 @@ print(yourPop is Classic)   //false
 print(music is Pop)     //false
 print(myClassic is Pop) //false
 print(yourPop is Pop)   //true
+
+//다운캐스팅
+if let test: Classic = music as? Classic {
+    print("Classic 타입으로 캐스팅 가능합니다.")
+}
+else {
+    print("Classic 타입으로 캐스팅 불가능합니다.")
+}
+
+if let test: Classic = myClassic as? Classic {
+    print("Classic 타입으로 캐스팅 가능합니다.")
+}
+else {
+    print("Classic 타입으로 캐스팅 불가능합니다.")
+}
+
+if let test: Classic = yourPop as? Classic {
+    print("Classic 타입으로 캐스팅 가능합니다.")
+}
+else {
+    print("Classic 타입으로 캐스팅 불가능합니다.")
+}
+
+//강제 타입캐스팅
+let test: Music = music as! Music
+
+//AnyObject 타입캐스팅
+func typecastingOfAnyObject(object: AnyObject) -> Void {
+    if let test: Pop = object as? Pop {
+        print("Pop 음악입니다.")
+    } else if let test: Classic = object as? Classic {
+        print("Classic 음악입니다.")
+    } else if let test: Music = object as? Music {
+        print("음악입니다.")
+    } else {
+        print("알 수 없는 음악입니다.")
+    }
+}
+
+typecastingOfAnyObject(object: music)
+typecastingOfAnyObject(object: myClassic)
+typecastingOfAnyObject(object: yourPop)
+
+//Any 타입캐스팅
+func checkAny(of object: Any) -> Void {
+    if let test: Music = object as? Music {
+        print("음악 입니다.")
+    } else if let number: Int = object as? Int {
+        print(number)
+    } else if let string: String = object as? String {
+        print("\(string)")
+    } else if let stringToString: (String) -> String = object as? (String) -> String {
+        print(stringToString("Hello"))
+    } else {
+        print("Unkown type")
+    }
+}
+
+checkAny(of: myClassic)
+checkAny(of: 123)
+checkAny(of: "안녕하세요!")
+checkAny(of: { (greet: String) -> String in "\(greet)! nice to meet you"})
