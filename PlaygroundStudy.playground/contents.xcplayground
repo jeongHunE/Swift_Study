@@ -22,5 +22,6 @@
         <page name='Subscript'/>
         <page name='Inheritance'/>
         <page name='TypeCasting'/>
+        <page name='Protocol'/>
     </pages>
 </playground>
