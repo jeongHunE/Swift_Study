@@ -23,5 +23,6 @@
         <page name='Inheritance'/>
         <page name='TypeCasting'/>
         <page name='Protocol'/>
+        <page name='Extension'/>
     </pages>
 </playground>
