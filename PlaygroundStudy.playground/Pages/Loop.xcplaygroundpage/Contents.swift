@@ -31,13 +31,12 @@ repeat {
 //중첩된 반복문
 let numbers: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 var sumNum:Int = 0
+var evenNumbers: [Int] = [Int]()
 
 numbersLoop: for num in numbers {
     if num % 2 != 0 {
         continue numbersLoop    //반복문 제어 범위
     }
-    
-    var evenNumbers: [Int] = [Int]()
     evenNumbers.append(num)
     
     addLoop: while true {
