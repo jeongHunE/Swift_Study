@@ -10,8 +10,8 @@ print("1부터 10까지의 합은 \(sum)입니다.")
 //딕셔너리를 활용한 for문
 let endOfMonth: [String: Int] = ["1월": 31, "2월": 28, "3월": 31, "4월": 30]
 
-for i in endOfMonth {
-    print(i)
+for (month, day) in endOfMonth {
+    print("\(month), \(day)")
 }
 
 //while문
