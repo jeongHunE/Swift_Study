@@ -20,8 +20,7 @@ let personKimPosition: Position = Position(x: 5, y: 7) //이니셜라이저 사�
 print("personLee의 위치: \(personLeePosition.x), \(personLeePosition.y)")
 print("personKim의 위치: \(personKimPosition.x), \(personKimPosition.y)")
 print(personLeePosition.oppositePosition)   //대칭 좌표
-personLeePosition.oppositePosition = Position(x: 10, y: 20)
-//대칭좌표 재설정
+personLeePosition.oppositePosition = Position(x: 10, y: 20) //대칭좌표 재설정
 print(personLeePosition)
 
 class NowPosition {
