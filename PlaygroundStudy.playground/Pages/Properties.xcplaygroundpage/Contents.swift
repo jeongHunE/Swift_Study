@@ -23,21 +23,6 @@ print(personLeePosition.oppositePosition)   //대칭 좌표
 personLeePosition.oppositePosition = Position(x: 10, y: 20) //대칭좌표 재설정
 print(personLeePosition)
 
-class NowPosition {
-    var point: Position     //저장 프로퍼티(변수)
-    let personName: String  //저장 프로퍼티(상수)
-    
-    //이니셜라이저
-    init(point: Position, personName: String) {
-        self.point = point
-        self.personName = personName
-    }
-}
-
-let personKim: NowPosition = NowPosition(point: personKimPosition, personName: "김영희")
-print(personKim.personName)
-print(personKim.point)
-
 //프로퍼티 감시자
 class Student {
     var studentCount: Int = 10 {
