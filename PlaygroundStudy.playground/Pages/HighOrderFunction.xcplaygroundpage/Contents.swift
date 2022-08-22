@@ -1,26 +1,9 @@
 //map(맵)
 let numbers: [Int] = [1, 2, 3, 4, 5, 6]
 
-var squaredNum: [Int] = [Int]()     //제곱한 수를 저장할 배열
-var stringNum: [String] = [String]()    //숫자를 문자로 만들어 저장할 배열
+var squaredNum = numbers.map {$0 * $0}
 
-squaredNum = numbers.map({ (number: Int) -> Int in
-    return number * number
-})
-
-
-stringNum = numbers.map({ (number: Int) -> String in
-    return ("\(number)")
-})
-
-print(squaredNum)   //[1, 4, 9, 16, 25, 36]
-print(stringNum)    //["1", "2", "3", "4", "5", "6"]
-
-//for문을 이용한 표현
-for number in numbers {
-    squaredNum.append(number * number)
-    stringNum.append("\(number)")
-}
+var stringNum = numbers.map {"\($0)"}
 
 print(squaredNum)   //[1, 4, 9, 16, 25, 36]
 print(stringNum)    //["1", "2", "3", "4", "5", "6"]
