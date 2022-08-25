@@ -23,14 +23,12 @@ print(oddNum)       //[7, 9, 11]
 //reduce(리듀스)
 //연산 후 결과 값을 반환하는 형태의 리듀스
 var sum: Int = numbers.reduce(0, { (result: Int, next: Int) -> Int in
-    return result + next    //초기값이 0이고 numbers에 모든 요소를 더하는 리듀스
+    return result + next    //result: 초깃값 및 이전 closure 값, next: 배열의 요소 순회
 })
 
 print(sum)      //21
 
-var mul: Int = numbers.reduce(1) {  //초기값이 1이고 numbers의 모든 요소를 곱하는 리듀스
-    $0 * $1     //후행 클로저, return 생략, 매개변수 생략
-}
+var mul: Int = numbers.reduce(1) { $0 * $1 }  //초기값이 1이고 numbers의 모든 요소를 곱하는 리듀스
 
 print(mul)  //720
 
@@ -41,9 +39,7 @@ sum = numbers.reduce(into: 0, { (result: inout Int, next: Int) in
 
 print(sum)      //21
 
-mul = numbers.reduce(into: 1) {
-    $0 *= $1    //후행 클로저, return 생략, 매개변수 생략
-}
+mul = numbers.reduce(into: 1) { $0 *= $1 }    //후행 클로저, return 생략, 매개변수 생략
 
 print(mul)      //720
 
