@@ -54,4 +54,4 @@ print(upperString)      //["SWIFT", "KOTLIN", "OBJECTIVE-C", "JAVA", "PYTHON"]
 //map, filter, reduce 연계 사용
 //numbers에서 짝수를 골라내어 제곱한 뒤 합 구하기
 var result: Int = numbers.filter { $0.isMultiple(of: 2) }.map {$0 * $0 }.reduce(0, { $0 + $1 })
-print(result).   //56
+print(result)   //56
