@@ -1,18 +1,23 @@
 //Int, UInt 자료형
+/* Int: +, -, 0을 포함하는 정수
+   UInt: -를 제외한 0과 +를 포함하는 정수 */
 var integer: Int = -200
 let unsignedInteger: UInt = 30
 print("integer값: \(integer), unsignedInteger값: \(unsignedInteger)")
 print("Int 최댓값: \(Int.max), Int 최솟값: \(Int.min)")
 print("UInt 최댓값: \(UInt.max), UInt 최솟값: \(UInt.min)")
 
-let largeInteger: Int64 = Int64.max
-let smallInterger: Int8 = Int8.max
+let largeInteger: Int64 = Int64.max    //64비트 Int 타입
+let smallInterger: Int8 = Int8.max    //8비트 Int 타입
 print("Int64 최댓값: \(largeInteger), Int8 최댓값: \(smallInterger)")
-//Swift에서 Int와 UInt는 서로 다른 자료형
+
+//let tooLarge: Int = Int.max + 1    Int 범위 초과, 오류
+//let minusUInt: UInt = -1    UInt 타입에 음수 대입 불가능, 오류
 
 //Bool 자료형
 var boolean: Bool = true
 boolean.toggle()    //true-false 변환
+print(boolean)
 let isMan: Bool = true
 print("당신은 남자 입니까?: \(isMan)")
 
