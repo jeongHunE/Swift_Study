@@ -68,11 +68,18 @@ print(age)
 print(height)
 
 //tuple 자료형
-var personLee: (name: String, age: Int, height: Double) = ("jeunghun", 24, 173.3)   //tuple 키워드 없이 선언
-print("이름: \(personLee.name), 나이: \(personLee.age), 키: \(personLee.height)")
-//tuple index
+var personLee: (String, Int, Double) = ("jeunghun", 24, 173.3)   //여러개의 타입을 묶어 tuple로 선언
+print("이름: \(personLee.0), 나이: \(personLee.1), 키: \(personLee.2)")
 
-personLee.age = 25
+//tuple index
+personLee.1 = 25
 personLee.2 = 175   //index를 이용한 값 변경
 print("이름: \(personLee.0), 나이: \(personLee.1), 키: \(personLee.2)")
-//  index를 이용한 값 호출
+
+//tuple 각 타입에 이름 지정
+var personKim: (name: String, age: Int, height: Double) = ("cheolsoo", 99, 162.3)   //여러개의 타입을 묶어 tuple로 선언
+print("이름: \(personKim.name), 나이: \(personKim.age), 키: \(personKim.height)")
+
+personKim.age = 25
+personKim.height = 175   //이름을 이용한 값 변경
+print("이름: \(personKim.name), 나이: \(personKim.age), 키: \(personKim.height)")
