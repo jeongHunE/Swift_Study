@@ -24,5 +24,6 @@
         <page name='TypeCasting'/>
         <page name='Protocol'/>
         <page name='Extension'/>
+        <page name='String_Method'/>
     </pages>
 </playground>

@@ -22,9 +22,19 @@ let isMan: Bool = true
 print("당신은 남자 입니까?: \(isMan)")
 
 //Float, Double 자료형
-var floatValue:Float = 1.1234567
-let doubleValue:Double = 1.123456789
+var floatValue:Float = 1234567890.1    //표현 범위 초과
+let doubleValue:Double = 1234567890.1
 print("floatValue: \(floatValue), doubleValue: \(doubleValue)")
+
+floatValue = 123456.1
+print("floatValue: \(floatValue)")
+
+//random(in: ) method
+//1이상 100미만의 범위에서 난수 발생
+print(Int.random(in: 1..<100))
+print(UInt.random(in: 1..<100))
+print(Float.random(in: 1..<100))
+print(Double.random(in: 1..<100))
 
 //Character
 let alphabet: Character = "Z"   //문자와 문자열 모두 큰 따옴표("") 사용
@@ -38,15 +48,13 @@ print(한글)
 
 //String
 let name: String = "jeunghun"
-
 var hello: String = String()    //이니셜라이저를 사용하여 빈 문자열 생성
 hello.append("My name is ")   //append() 메서드를 사용하여 문자열 연결 가능
-
 hello = hello + " " + name  // + 연산자로 문자열 연결 가능
 print(hello)
 
-print("name의 문자 수: \(name.count)")
-print("introduce가 비어있습니까?: \(hello.isEmpty)")
+print("name의 문자 수: \(name.count)")    //문자열의 문자 개수
+print("introduce가 비어있습니까?: \(hello.isEmpty)")    //문자열이 비어있는지 bool 값 반환
 
 // 타입 별칭
 // 스위프트에서는 기본의 데이터 타입에 별칭 부여가 가능함
