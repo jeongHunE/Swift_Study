@@ -1,35 +1,39 @@
 //Array
-var programing: Array<String> = ["jeunghun", "Python", "Java", "Swift"]
+var programming: Array<String> = ["jeunghun", "Python", "Java", "Swift"]
 //var names: [String] = ["jeunghun", "Python", "Java", "Swift"]와 같음
 
 var emptyArray: [Any] = [Any]()    //Any형을 요소로 가지는 빈 배열 생성
 //var emptyArray: [Any] = Array<Any>()와 같음
 //var emptyArray: [Any] = [] 타입을 정화히 명시한 경우 가능
 print(emptyArray.isEmpty)
-print(programing.count)
+print(programming.count)
 
-programing[2] = "Kotlin"  //names 배열 2번째 요소값 변경
-print(programing[2])
+programming[2] = "Kotlin"  //names 배열 2번째 요소값 변경
+print(programming[2])
 
-programing.append("C++")  //배열 마지막에 "C++" 추가
-programing.append(contentsOf: ["HTML", "Objective-C"])   //배열 마지막에 두 가지 요소 추가
-programing.insert("C#", at: 2)
-programing.insert(contentsOf: ["CSS", "JavaScript"], at: 3)
+programming.append("C++")  //배열 마지막에 "C++" 추가
+programming.append(contentsOf: ["HTML", "Objective-C"])   //배열 마지막에 두 가지 요소 추가
+programming.insert("C#", at: 2)
+programming.insert(contentsOf: ["CSS", "JavaScript"], at: 3)
 
-print(programing[4])
-print(programing.firstIndex(of: "Swift"))   //"Swift"가 나오는 첫번째 위치
-print(programing.firstIndex(of: "R language")) //존재하지 않는 요소는 nil 반환
-print(programing.first) //첫번째 요소값
-print(programing.last)  //마지막 요소값
+print(programming[4])
+print(programming.firstIndex(of: "Swift"))   //"Swift"가 나오는 첫번째 위치
+print(programming.firstIndex(of: "R language")) //존재하지 않는 요소는 nil 반환
+print(programming.first) //첫번째 요소값
+print(programming.last)  //마지막 요소값
 
-let firstElement: String = programing.removeFirst()  //배열의 0번째 요소 삭제 후 변수에 저장
-let lastElement: String = programing.removeLast()   //배열의 마지막 요소 삭제 후 변수에 저장
-let indexElement: String = programing.remove(at: 1) //배열의 1번째 요소 삭제 후 변수에 저장
+let firstElement: String = programming.removeFirst()  //배열의 0번째 요소 삭제 후 변수에 저장
+let lastElement: String = programming.removeLast()   //배열의 마지막 요소 삭제 후 변수에 저장
+let indexElement: String = programming.remove(at: 1) //배열의 1번째 요소 삭제 후 변수에 저장
 
 print(firstElement)
 print(lastElement)
 print(indexElement)
-print(programing)
+
+//slicing
+print(programming[...3])    //처음부터 3까지 slicing
+print(programming[1...2])    //1부터 2까지 slicing
+print(programming[1..<3])    //1이상 3미만까지 slicing
 
 //Dictionary
 var dictionary: Dictionary<String, Int> = Dictionary<String, Int>() //빈 Dictionary 선언
@@ -86,3 +90,22 @@ let subtractSet: Set<String> = englishClassStudent.subtracting(mathClassStudent)
 print(subtractSet)
 
 print(symmetricDiffSet.sorted())    //세트 정렬
+
+//randomElement(), shuffled(), shuffle() method
+var array: [Int] = [0, 1, 2, 3, 4]
+var numberSet: Set<Int> = [0, 1, 2, 3, 4]
+var numberDictionary: [String: Int] = ["one": 1, "two": 2, "three": 3]
+var string: String = "string"
+
+print(array.randomElement())    //임의의 요소 반환
+print(array.shuffled())    //shuffled된 배열 반환(array는 그대로)
+array.shuffle()    //array 자체 shuffle
+print(array)
+
+print(numberSet.randomElement())    //임의의 요소 반환
+print(numberSet.shuffled())    //shuffled된 set Array 타입으로 반환(set은 그대로, set은 순서가 없기때문에 스스로 shuffle 불가능)
+
+print(numberDictionary.randomElement())    //임의의 요소 tuple로 반환
+print(numberDictionary.shuffled())    //key: value의 tuple을 요소로 가지는 Array 반환
+
+print(string.shuffled())    //문자의 순서를 shuffle한 Arrray 반환
