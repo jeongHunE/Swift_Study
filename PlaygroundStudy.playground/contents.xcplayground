@@ -24,5 +24,6 @@
         <page name='Protocol'/>
         <page name='Extension'/>
         <page name='String_Method'/>
+        <page name='User_defined_operator'/>
     </pages>
 </playground>
