@@ -115,6 +115,13 @@ let saveCalc: Calc = chooseCalc(chooseAdd)  //반환 받은 함수를 상수에 
 
 print(saveCalc(3, 4))
 
+//종료되지 않는 함수(비반환 함수)
+func crashAndBurn() -> Never {
+    fatalError("Something is wrong")
+}
+
+crashAndBurn()    //정상 종료되지 않고 크래시 발생
+
 //반환 값을 무시하는 함수
 @discardableResult func someFunction(_ something: String) -> String {
     print(something)
