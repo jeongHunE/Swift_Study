@@ -86,15 +86,17 @@ class Customer {
         }
     }
     
-    func discountPrice() -> Double {
-        return Self.price * Self.discountRate
+    var discountPrice: Double {    //연산 프로퍼티
+        get {
+            return Self.price * Self.discountRate
+        }
     }
 }
 
 var normalCustomer: Customer = Customer()
-Customer.setDiscountRate = 0.95     //일반 고객 할인 비율 설정
-print(normalCustomer.discountPrice())
+Customer.setDiscountRate = 0.90     //일반 고객 할인 비율 설정
+print(normalCustomer.discountPrice)
 
 var VIPCustomer: Customer = Customer()
-Customer.setDiscountRate = 0.90     //VIP 고객 할인 비율 설정
-print(VIPCustomer.discountPrice())
+Customer.setDiscountRate = 0.95     //VIP 고객 할인 비율 설정
+print(VIPCustomer.discountPrice)
