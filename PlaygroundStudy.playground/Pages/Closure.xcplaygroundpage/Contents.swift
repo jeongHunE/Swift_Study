@@ -106,6 +106,37 @@ let yourClosure: funcObject = chocieClosure(first: firstClosure, second: secondC
 
 yourClosure()   //클로저 호출
 
+typealias VoidClosure = () -> Void
+
+func functionNoescapeClosure(closure: VoidClosure) {
+    closure()
+}
+
+func functionEscapeClosure(completionHandler: @escaping VoidClosure) -> VoidClosure {
+    return completionHandler
+}
+
+class SomeClass {
+    var a: Int = 10
+    
+    func noescapeClosureMethod() {
+        functionNoescapeClosure() { a = 200 }
+    }
+    
+    func escapeClosureMethod() -> VoidClosure {
+        return functionEscapeClosure() { self.a = 100 }     //탈출 클로저의 프로퍼티, 메서드, 서브스크립트로 접근시 self 키워드 필수
+    }
+}
+
+let aInstance: SomeClass = SomeClass()
+aInstance.noescapeClosureMethod()
+print(aInstance.a)
+
+let returnedClosure: VoidClosure = aInstance.escapeClosureMethod()
+returnedClosure()
+print(aInstance.a)
+
+
 //자동 클로저
 var myDevice: [String] = ["iPhone", "iPad", "Macbook Pro"]
 
