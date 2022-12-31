@@ -104,3 +104,11 @@ print(personLee.student?.university?.major?.field)
 //옵셔널 체이닝을 이용한 메서드 호출
 personLee.student?.university?.introduce()?.isEmpty     //false
 personLee.student?.university?.printInfo()  //대한민국에 위치한 한국대학교에서 컴퓨터공학 전공을 공부하고 있습니다.
+
+//optional chaining subscribt
+let optionalArray: [Int]? = [1, 2, 3]
+print(optionalArray?[1])    //2
+
+var optionalDictionary: [String: [Int]]? = [String: [Int]]()
+optionalDictionary?["numberArray"] = optionalArray
+print(optionalDictionary?["numberArray"]?[2])    //3
