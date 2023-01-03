@@ -29,6 +29,7 @@ class School {
         
         //새로운 학생 추가
         set {
+            //newValue의 타입은 subscript의 반환 값과 일치
             guard var newStudent: Student = newValue else {
                 return
             }
@@ -44,14 +45,14 @@ class School {
         }
     }
     
-    //두번째 서브스크립트
+    //두번째 서브스크립트(읽기 전용)
     subscript(name: String) -> Int? {   //name에 해당하는 인스턴스의 key값 반환
         get {
             return self.students.filter { $0.1.name == name }.first?.key
         }
     }
     
-    //세번째 서브스크립트
+    //세번째 서브스크립트(읽기 전용)
     subscript(key: Int, name: String) -> Student? { //key값과 name값에 해당하는 Student 인스턴스 반환
         return self.students.filter { $0.0 == key && $0.1.name == name }.first?.value
     }
