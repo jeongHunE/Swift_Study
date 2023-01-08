@@ -25,5 +25,6 @@
         <page name='Extension'/>
         <page name='String_Method'/>
         <page name='User_defined_operator'/>
+        <page name='Initializer_inheritence'/>
     </pages>
 </playground>
