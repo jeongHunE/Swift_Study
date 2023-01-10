@@ -60,6 +60,46 @@ print(music is Pop)     //false
 print(myClassic is Pop) //false
 print(yourPop is Pop)   //true
 
+//데이터 타입 확인
+protocol SomeProtocol {}
+class SomeClass: SomeProtocol {}
+
+/*
+ .Type은 메타 타입(타입의 타입)
+ .self는 타입 자체를 값으로 반환
+ */
+let intType: Int.Type = Int.self
+let stringType: String.Type = String.self
+let classType: SomeClass.Type = SomeClass.self
+let protocalProtocol: SomeProtocol.Protocol = SomeProtocol.self
+
+var anyType: Any.Type
+anyType = intType
+print(anyType)    //Int
+
+anyType = stringType
+print(anyType)    //String
+
+anyType = classType
+print(anyType)    //SomeClass
+
+anyType = protocalProtocol
+print(anyType)    //SomeProtocol
+
+//type(of:) function
+//.self로 type에 대한 값을 반환하여 type(of:) 반환 값과 비교
+print(type(of: music) == Music.self)    //true
+print(type(of: myClassic) == Music.self)    //false
+print(type(of: yourPop) == Music.self)    //false
+
+print(type(of: music) == Classic.self)    //false
+print(type(of: myClassic) == Classic.self)    //true
+print(type(of: yourPop) == Classic.self)    //false
+
+print(type(of: music) == Pop.self)    //fase
+print(type(of: myClassic) == Pop.self)    //false
+print(type(of: yourPop) == Pop.self)    //true
+
 //다운캐스팅
 if let test: Classic = music as? Classic {
     print("Classic 타입으로 캐스팅 가능합니다.")
