@@ -11,44 +11,46 @@ protocol SomeProtocol {
     //구현부에서 class 혹은 static으로 선언해도 상관 없음
     static var someTypeProperty: Int { get set }
     static var anotherProperty: Int { get }
+    
+    //타입 메서드 또한 static으로 선언
+    static func someTypeMethod(_ parameter: Any) -> Any
 }
 
 protocol info {
-    var fullName: String { get }    //읽기 전용 프로퍼티 요구
-    var age: Int { get }    //읽기 전용 프로퍼티 요구
+    //읽기 전용 프로퍼티는 구현부에서 읽기, 쓰기 모두 가능한 프로퍼티로 구현 가능
+    //읽기, 쓰기가 모두 가능한 프로퍼티를 상수 저장 프로퍼티, 읽기 전용 연산 프로퍼티로 구현 불가능
+    var name: String { get }    //읽기 전용 프로퍼티 요구
+    var age: Int { get }        //읽기 전용 프로퍼티 요구
+    
+    //이니셜라이저 요구
+    init(name: String, age: Int)
     
     //메서드 요구
     func greet(to: Any)
 }
 
 class Person: info {
-    let age: Int
-    var firstName: String
-    var lastName: String
+    var age: Int
+    var name: String
     
-    // 프로퍼티 구현
-    var fullName: String {
-        firstName + lastName
+    //이니셜라이저 요구 구현
+    required init(name: String, age: Int) {
+        self.name = name
+        self.age = age
     }
     
     //메서드 구현
     func greet(to: Any) {
         if let person: info = to as? info {    //info protocol를 준수하는 인스턴스인지 확인
-            print("\(person.fullName)씨, 안녕하세요! 저의 이름은 \(self.fullName)이고 나이는 \(self.age)입니다. 잘 부탁합니다!")
+            print("\(person.name)씨, 안녕하세요! 저의 이름은 \(self.name)이고 나이는 \(self.age)입니다. 잘 부탁합니다!")
         } else {
             print("대화 상대가 없습니다.")
         }
     }
-    
-    init(firstName: String, lastName: String, age: Int) {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.age = age
-    }
 }
 
-let personKim: Person = Person(firstName: "Kim", lastName: " cheolsu", age: 22)
-let personPark: Person = Person(firstName: "Park", lastName: " younghee", age: 19)
+let personKim: Person = Person(name: " cheolsu", age: 22)
+let personPark: Person = Person(name: " younghee", age: 19)
 
 personKim.greet(to: personPark)
 personPark.greet(to: personKim)
@@ -87,3 +89,39 @@ print(personLee is Programming)     //true
 if let test: Programming = personLee as? Programming {
     print("Programming 프로토콜을 준수합니다.")   //Programming 프로토콜을 준수합니다.
 }
+
+//프로토콜 선택적 요구
+import Foundation
+
+@objc protocol Car {
+    func drive()
+    @objc optional func driveWithElectricity()    //optional type
+}
+
+class GasolineCar: NSObject, Car {
+    func drive() {
+        print("gasoline car driving")
+    }
+}
+
+class ElectricityCar: NSObject, Car {
+    func drive() {
+        print("electricity car driving")
+    }
+    
+    func driveWithElectricity() {
+        print("it works with electricity")
+    }
+}
+
+var myCar: GasolineCar = GasolineCar()
+var yourCar: ElectricityCar = ElectricityCar()
+
+myCar.drive()    //gasoline car driving
+yourCar.drive()    //electricity car driving
+
+var car: Car = myCar
+car.driveWithElectricity?()    //nil
+
+car = yourCar
+car.driveWithElectricity?()    //it works with electricity
