@@ -43,7 +43,7 @@ print(strQueue.items)    //["A", "B"]
 strQueue.pop()
 print(strQueue.items)    //["B"]
 
-/*var anyQueue: Queue<Any> = Queue<Any>()    Any Type do not conform to the Hashable protocol
+/*var anyQueue: Queue<Any> = Queue<Any>()    Any Type does not conform to the Hashable protocol
 
 anyQueue.push(1)
 anyQueue.push("A")
