@@ -17,7 +17,7 @@ swapValues(&str1, &str2)    //type of T is String
 print(str1, str2)    //B A
 
 //Generic Type
-struct Queue<Element: Hashable> {    //type of Element has to conform to the Hashable protocol
+struct Queue<Element: Hashable> {    //type of Element must conform to the Hashable protocol
     var items: [Element] = []
     mutating func push(_ item: Element) {
         items.append(item)
@@ -60,3 +60,67 @@ extension Queue {    //do not have to express placeholder
     }
 }
 
+//Associated Type
+protocol SomeProtocol {
+    associatedtype someType    //associated type
+    var count: Int { get }
+    mutating func push(_ item: someType)
+    mutating func pop() -> someType
+    subscript(i: Int) -> someType { get }
+}
+
+class AssociatedType_Queue: SomeProtocol {    //associated type is Integer
+    typealias someType = Int    //passing the Integer type to the placeholder
+    
+    var items: [Int] = [Int]()
+    var count: Int {
+        return items.count
+    }
+    
+    func push(_ item: someType) {
+        items.append(item)
+    }
+    
+    func pop() -> Int {
+        return items.removeFirst()
+    }
+    
+    subscript(i: Int) -> Int {
+        return items[i]
+    }
+}
+
+//associated type with generic
+struct Generic_Queue<Element>: SomeProtocol {
+    //associateed type is Element type
+    var items: [Element] = [Element]()
+    
+    var count: Int {
+        return items.count
+    }
+    
+    mutating func push(_ item: Element) {
+        items.append(item)
+    }
+    
+    mutating func pop() -> Element {
+        return items.removeFirst()
+    }
+    
+    subscript(i: Int) -> Element {
+        return items[i]
+    }
+}
+
+//subscript Generic
+extension Generic_Queue {
+    subscript<Seq: Sequence>(indices: Seq) -> [Element] where Seq.Iterator.Element == Int {
+        //Seq type must conform the Sequence protocol and it's Iterator Element type is a Integer
+        var sliced: [Element] = [Element]()
+        for index in indices {
+            sliced.append(self[index])
+        }
+        
+        return sliced
+    }
+}
