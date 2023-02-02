@@ -27,5 +27,6 @@
         <page name='User_defined_operator'/>
         <page name='Initializer_inheritence'/>
         <page name='Generic'/>
+        <page name='JSON_Parsing'/>
     </pages>
 </playground>
