@@ -28,5 +28,6 @@
         <page name='Initializer_inheritence'/>
         <page name='Generic'/>
         <page name='JSON_Parsing'/>
+        <page name='Enum'/>
     </pages>
 </playground>
