@@ -136,7 +136,7 @@ let returnedClosure: VoidClosure = aInstance.escapeClosureMethod()
 returnedClosure()
 print(aInstance.a)
 
-//withoutAcuallyEscaping
+//withoutActuallyEscaping
 let numbers: [Int] = [1, 2, 3]
 
 func addOne(in array: [Int], _ increment: (Int) -> Int) -> [Int] {
@@ -144,7 +144,7 @@ func addOne(in array: [Int], _ increment: (Int) -> Int) -> [Int] {
         return array.lazy.map { escapablePredicate($0) }
         //Array type의 lazy 프로퍼티는 지연연산
         //하지만 전달인자로 들어오는 클로저는 비탈출 클로저
-        //비탈출 클로저를 탈출 클로저처럼 바꿔주는 withoutAcuallyEscaping 함수
+        //비탈출 클로저를 탈출 클로저처럼 바꿔주는 withoutActuallyEscaping 함수
     })
 }
 
