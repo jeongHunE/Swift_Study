@@ -62,11 +62,51 @@ enum Customer {
 }
 
 var customerLee: Customer? = Customer(point: 77)
-print(customerLee)
+if let customer: Customer = customerLee {
+    print(customer)
+} else {
+    print("no customer")
+}
+
 var customerKim: Customer? = Customer(currentPoint: 75, earnPoint: 6)
-print(customerKim)
+if let customer: Customer = customerKim {
+    print(customer)
+} else {
+    print("no customer")
+}
+
 var customerSon: Customer? = Customer(point: -100)
-print(customerSon)
+if let customer: Customer = customerSon {
+    print(customer)
+} else {
+    print("no customer")
+}
+
+//클로저를 이용한 프로퍼티 초기화
+enum Level {
+    case junior, mid, senior
+}
+
+struct Developer {
+    var name: String?
+    var level: Level
+}
+
+struct Team {
+    var developers: [Developer] = {
+        var arr: [Developer] = [Developer]()
+        
+        arr.append(Developer(level: .junior))
+        arr.append(Developer(level: .mid))
+        arr.append(Developer(level: .senior))
+        
+        return arr
+    }()
+}
+
+var team: Team = Team()
+print(team.developers)
+
 
 //디이니셜라이저
 class TestClass {
