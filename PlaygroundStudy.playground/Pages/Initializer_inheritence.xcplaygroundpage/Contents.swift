@@ -1,56 +1,72 @@
-class Person {
+class Country {
     var name: String
-    var age: Int
+    var population: Int?
     
-    init(name: String, age: Int) {    //지정 이니셜라이저
+    //지정 이니셜라이저
+    init(name: String, population: Int?) {
         self.name = name
-        self.age = age
+        self.population = population
     }
     
-    convenience init(name: String) {    //편의 이니셜라이저
-        self.init(name: name, age: 0)     //지정 이니셜라이저 호출
-    }
-}
-
-class Student: Person {
-    var major: String
-    
-    //프로퍼티 기본값이 존재하고 이니셜라이저가 구현되어 있지 않을떄 부모 클래스의 이니셜라이저 자동 상속
-    
-    //프로퍼티 기본값이 없을 경우 이니셜라이저 상속 x
-    override init(name: String, age: Int) {    //이니셜라이저 override
-        self.major = "Swift"
-        super.init(name: name, age: age)
+    //편의 이니셜라이저
+    convenience init(name: String) {
+        self.init(name: name, population: nil)
     }
     
-    /*프로퍼티 기본값이 존재하거나 이니셜라이저 재정의로 부모 클래스와 동일한 이니셜라이저를 사용할 수 있다면
-     편의 이니셜라이저 자동 상속*/
-    
-    required init(name: String) {    //요구 이니셜라이저
-        self.major = "Swift"
-        super.init(name: name, age: 0)
+    init() {
+        self.name = "Unkown"
+        self.population = nil
     }
 }
 
-class UniversityStudent: Student {
-    var grade: String
+class Korea: Country {
+    var greet: String
     
-    required init(name: String) {    //요구 이니셜라이저 재정의
-        self.grade = "F"
-        super.init(name: name, age: 0)
+    //지정 이니셜라이저
+    override init(name: String, population: Int?) {
+        self.greet = "안녕하세요!"    //super 클래스의 이니셜라이저를 호출하기 전에 자신 클래스가 가지는 프로퍼티를 초기화
+        super.init(name: name, population: population)    //지정 이니셜라이저는 super 클래스의 지정 이니셜라이저를 호출
+    }
+    
+    //요구 편의 이니셜라이저
+    required convenience init(name: String) {
+        self.init(name: name, population: 50000000)    //편의 이니셜라이저는 해당 클래스의 지정 이니셜라이저를 반드시 호출
+    }
+    
+    //재정의한 이니셜라이저를 요구 이니셜라이저로 구현
+    required override init() {
+        self.greet = ""
+        super.init()
     }
 }
 
-let person: Person = Person(name: "Lucas", age: 99)
-let student: Student = Student(name: "john")
-print(person.name)
-print(student.name)
-print(person.age)
-print(student.age)
-print(student.major)
+class Seoul: Korea {
+    var landmark: String
+    
+    //요구 이니셜라이저 구현
+    required init() {
+        self.landmark = "경복궁"
+        super.init(name: "서울", population: 10000000)
+    }
+    
+    //요구 편의 이니셜라이저 구현
+    required convenience init(name: String) {
+        self.init()
+        self.name = name
+    }
+}
 
-let universityStudent: UniversityStudent = UniversityStudent(name: "mark")
-print(universityStudent.name)
-print(universityStudent.age)
-print(universityStudent.major)
-print(universityStudent.grade)
+let country: Country = Country(name: "대한민국")
+print(country.name)    //대한민국
+print(country.population)    //nil
+
+let rok: Korea = Korea(name: "대한민국")
+print(rok.name)    //대한민국
+print(rok.greet)    //안녕하세요!
+print(rok.population!)    //50000000
+
+let seoul: Seoul = Seoul()
+print(seoul.name)    //서울
+print(seoul.population!)    //10000000
+print(seoul.greet)    //안녕하세요!
+print(seoul.landmark)    //경복궁
