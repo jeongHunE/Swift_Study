@@ -50,3 +50,21 @@ print(isEmpty)    //true
 print(greet.count)    //0
 print(hello.count)    //6
 print(your.count)    //8
+
+let s: String = "hello"
+let i: String.Index = s.startIndex
+print(s[i])    //h
+
+let j: String.Index = s.index(s.startIndex, offsetBy: 0)
+print(s[j])    //h
+
+let k: String.Index = s.index(s.startIndex, offsetBy: 4)
+print(s[k])    //o
+
+let a: String.Index = s.index(after: s.startIndex)
+print(s[a])    //e
+
+let b: String.Index = s.index(before: k)
+print(s[b])    //l
+
+print(s[i...a])    //he
