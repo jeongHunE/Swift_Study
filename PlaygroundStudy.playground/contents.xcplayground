@@ -29,5 +29,6 @@
         <page name='Generic'/>
         <page name='JSON_Parsing'/>
         <page name='Enum'/>
+        <page name='Monad'/>
     </pages>
 </playground>
