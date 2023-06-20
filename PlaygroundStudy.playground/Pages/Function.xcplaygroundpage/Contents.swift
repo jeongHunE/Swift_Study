@@ -78,9 +78,8 @@ func mulFunc(_ a: Int, _ b: Int) -> Int {
     return a * b
 }
 
-var mathCal: Calculate = addFunc
-//함수를 데이터 타입으로 사용, 함수를 변수에 저장 가능
-print(mathCal(4, 5))
+var mathCal: Calculate = addFunc    //함수를 데이터 타입으로 사용, 함수를 변수에 저장 가능
+print(mathCal(4, 5))    //변수 이름으로 할당된 함수의 매개변수의 전달인자로 전달하며 호출(전달인자 레이블 or 와일드 카드 식별자 상관 없음)
 
 func printResult(_ function: Calculate, _ a: Int, _ b: Int) {
     //함수를 매개변수로 사용 가능
