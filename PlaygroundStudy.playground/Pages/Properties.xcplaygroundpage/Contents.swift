@@ -74,6 +74,9 @@ print(studentInfo)
 
 //타입 프로퍼티
 class Customer {
+    //저장 타입 프로퍼티는 반드시 초기화 해야함
+    //lazy 키워드를 사용하지 않아도 기본적으로 지연 연산됨
+    //다중 스레드 환경에서 단 한번만 초기화를 보장
     static let price: Double = 15000    //저장 타입 프로퍼티(상수)
     static var discountRate:Double = 0  //저장 타입 프로퍼티(변수)
     
