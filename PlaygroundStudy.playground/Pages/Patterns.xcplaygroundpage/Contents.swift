@@ -64,3 +64,95 @@ for (a, b) in tupleArray {
 //a: 3, b: 3
 //a: 4, b: 4
 //a: 5, b: 5
+
+//MARK: - Enumeration Case Pattern(열거형 케이스 패턴)
+let anotherValue: Int = 100
+
+if case 100 = anotherValue {    //case 조건
+    print(anotherValue)    //100
+}
+
+enum Todo {
+    case sum(todo: String)
+    case mon(todo: String)
+    case tue(todo: String)
+    case wen(todo: String)
+    case thu(todo: String)
+    case fri(todo: String)
+    case sat(todo: String)
+}
+
+let mondayTodo: Todo = .mon(todo: "영어 공부")
+
+while case .mon(let todo) = mondayTodo {    //연관값에는 튜플 패턴 사용
+    print(todo)    //영어 공부
+    break
+}
+
+let tuesdayTodo: Todo = .tue(todo: "과제 제출")
+
+func findTueTodo(target: Todo) {
+    guard case .tue(let todo) = target else {
+        print("화요일에 해야할 작업이 없습니다.")
+        return
+    }
+    print("화요일 작업: \(todo)")
+}
+
+findTueTodo(target: tuesdayTodo)    //화요일 작업: 과제 제출
+
+//MARK: - Optional Pattern(옵셔널 패턴)
+var optionalValue: Int? = 10
+
+if case .some(let value) = optionalValue {
+    print(value)    //10
+}
+
+if case let value? = optionalValue {
+    print(value)    //10
+}
+
+//MARK: - Type-Casting Pattern
+let stringValue: String = "Swift"
+
+switch stringValue {
+case is Int:    //타입 확인만 가능
+    print("stringValue is Int")
+case var value as String:    //타입 캐스팅 후 변수 사용 가능
+    value += " is fun!"
+    print(value)    //Swift is fun!
+default:
+    print("stringValue is not String")
+}
+
+//MARK: - Expression Pattern(표현 패턴)
+let intValue: Int = 5
+
+//~= 연산자를 통해 Range 객체와 비교하여 true이면 매치
+switch intValue {
+case 0...9:
+    print("intValue in 0...9")
+default:
+    print("intvalue < 0 or intValue > 9")
+}
+
+//같은 타입의 비교는 == 연산자 사용
+switch intValue {
+case 5:
+    print("intValue is 5")
+default:
+    print("intValue is not 5")
+}
+
+//~= 연산자 재정의
+func ~= (pattern: String, value: Int) -> Bool {
+    return pattern == String(value)
+}
+
+//재정의된 ~= 연산자를 사용하여 비교
+switch intValue {
+case "5":
+    print("intValue is 5")
+default:
+    print("intValue is not 5")
+}
