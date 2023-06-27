@@ -10,7 +10,7 @@ case let (x, y) where x < 0 && y < 0:
     print("(\(x), \(y)): 3사분면")
 case let (x, y) where x > 0 && y < 0:
     print("(\(x), \(y)): 4사분면")
-case let (_, _):
+case (_, _):
     print("(\(point.0), \(point.1)): 선의 경계")
 }
 //(-3, 2): 2사분면
