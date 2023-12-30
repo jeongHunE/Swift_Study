@@ -16,7 +16,7 @@ let personLee: Person = Person(name: "이순신")
 var myCar: Car = Car(model: "Model3", owner: personLee)
 
 //keyPath: 프로퍼티의 위치만 참조
-//키 경로를 사용하여 특정 타입의 특정 프로퍼티를 가리켜야 되는지 지정할 수 있음
+//키 경로를 사용하여 특정 타입의 어떤 프로퍼티를 가리켜야 되는지 지정할 수 있음
 let ownerKeyPath = \Car.owner
 let carModelPath = \Car.model
 let ownerNamePath = ownerKeyPath.appending(path: \.name)    // \Car.owner.name과 동일
@@ -38,3 +38,19 @@ myCar[keyPath: ownerKeyPath] = personKim
 print(myCar[keyPath: carModelPath])    //ModelX
 print(myCar[keyPath: ownerKeyPath])    //personKimm
 print(myCar[keyPath: ownerNamePath])    //김유신
+
+struct Student {
+    var name: String
+    var id: String?
+}
+
+let studentLee: Student = Student(name: "이순신", id: "123")
+let studentKim: Student = Student(name: "김유신")
+let studentHong: Student = Student(name: "홍길동", id: "999")
+
+let students: [Student] = [studentKim, studentLee, studentHong]
+let studentNames: [String] = students.map(\.name)    //KeyPath로 (Student) -> String 대체
+print(studentNames)    //["김유신", "이순신", "홍길동"]
+
+let studentIds: [String] = students.compactMap(\.id)
+print(studentIds)    //["123", "999"]
